@@ -23,13 +23,13 @@ function MealsList({ categoryName }) {
     localStorage.setItem("lastSelectedOption", categoryName);
   }, [categoryName]);
 
-  // useEffect(() => {
-  //   if (data?.data?.meals === null) {
-  //     navigate("/"); 
-  //   }
-  // }, [data, navigate]);
+  useEffect(() => {
+    if (data?.data?.meals === null) {
+      navigate("/"); 
+    }
+  }, [data, navigate]);
   if (isLoading) return <LoadingSkeleton1 />;
-  if (data?.data?.meals === null)   navigate("/"); 
+
   return (
     <ul className="meals-list sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 space-x-6">
       {data &&
