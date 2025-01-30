@@ -1,0 +1,303 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+$main-bg-color: #f4f2ee;
+
+body {
+  margin: 0;
+  background-color: $main-bg-color;
+  font-family: "Lexend Deca", serif;
+}
+
+.layout {
+  /* display: grid; */
+  /* grid-template-columns: 230px 1fr; */
+  overflow: hidden;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 260px;
+  background-color: rgb(255, 250, 250);
+  height: 100%;
+  padding: 16px 12px;
+}
+
+.show-menu-btn {
+  padding: 0.2rem 0.3rem;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  font-size: 30px;
+  border-radius: 8px;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+ul {
+  padding: 0;
+}
+
+.navlink {
+  background-color: white;
+  border-radius: 0.75rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(128, 128, 128, 0.427);
+  transition: 0.3s all;
+  overflow: hidden; 
+  padding: 0.6rem 1rem;
+  color: black;
+  font-size: large;
+  font-weight: 600;
+  &:hover
+  {
+    transform: scale(1.05);
+    box-shadow: 0px 3px 10px #f8ad587f;
+  }
+
+  a
+  {
+    inset: inherit;
+    display: flex;
+    justify-items: center;
+    gap: 0.5rem;
+    svg
+    {
+      position: relative;
+      top: 4px
+    }
+
+  }
+}
+
+
+.active-link
+{
+  @extend .navlink;
+  background-color: #f29724;
+  box-shadow: 0px 3px 10px #f29724;
+  color: white;
+  &:hover
+  {
+    box-shadow: none;
+  }
+}
+
+.gradient-text {
+  font-family: "Pacifico", cursive;
+  background: linear-gradient(to right, #f29724, #c90519);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.meals-list {
+  margin-top: 2rem;
+  list-style-type: none;
+  display: grid;
+  //   grid-template-columns: 1fr;
+  .meal-item {
+    text-align: center;
+    background-color: white;
+    border-radius: 30px;
+    padding: 1.25rem 0;
+    position: relative;
+    transition: 0.4s all;
+    margin: 2.5rem 0;
+
+    img {
+      position: relative;
+      top: -50px;
+      margin: auto;
+      border-radius: 50%;
+      width: 80%;
+      transition: 0.6s all;
+    }
+    .name {
+      font-size: 1.5rem;
+      font-weight: 500;
+    }
+    .country {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgb(5, 150, 105);
+      margin-bottom: 1rem;
+    }
+    .btn {
+      color: white;
+      padding: 0.5rem 2rem;
+      border-radius: 25px;
+      background-color: rgb(33 186 117);
+      font-size: 1rem;
+      font-weight: 600;
+      transition: 0.4s all;
+      cursor: pointer;
+      &:hover {
+        transform: scale(1.1);
+        background-color: rgb(5, 150, 105);
+      }
+    }
+    &:hover {
+      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+      transform: scale(1.05);
+      img {
+        transform: rotate(360deg);
+      }
+    }
+  }
+}
+
+.select-list {
+  margin: 3rem 0;
+  width: 100%;
+  padding: 0.8rem 0.25rem;
+  border-radius: 15px;
+  border: 1px solid rgba(128, 128, 128, 0.482);
+}
+
+.category-btn {
+  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.395);
+  border-radius: 20px;
+  padding: 0.4rem 1rem;
+  transition: 0.4s all;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+
+  &:hover {
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    background-color: white;
+  }
+}
+
+.category-btn-active
+{
+  background-color: black;
+  color: white;
+
+  &:hover {
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    background-color: black;
+  }
+}
+
+.all-btn
+{
+  @extend .category-btn;
+  border: 1px solid rgba(128, 128, 128, 0.219);
+}
+
+h1 {
+  font-family: "Pacifico", cursive;
+  font-size: 3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.meal-details {
+  .meal-info {
+    img {
+      border-radius: 20px;
+    }
+  }
+}
+
+$ytb-btn-color: #dc2626;
+$src-btn-color: #21ba75;
+
+.links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.5rem 0;
+  gap: 1rem;
+  color: white;
+  button {
+    text-align: center;
+    padding: 0.6rem 0.8rem;
+    border-radius: 10px;
+    a {
+      display: flex;
+      justify-content: center;
+      justify-items: center;
+      gap: 0.5rem;
+      svg {
+        position: relative;
+        top: 4px;
+      }
+    }
+  }
+
+  .ytb-btn {
+    background-color: $ytb-btn-color;
+  }
+  .src-btn {
+    background-color: $src-btn-color;
+  }
+}
+
+.ingredients {
+  // margin: 2rem 0;
+  background: white;
+  border-radius: 20px;
+  padding: 1rem;
+
+  h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    position: relative;
+    margin-bottom: 2rem;
+  }
+  h3::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: rgba(128, 128, 128, 0.553);
+    bottom: -0.4rem;
+    left: 0;
+  }
+}
+
+.ingredient-underline {
+  margin: 0.6rem 0;
+  width: 100%;
+  height: 2px;
+  background-color: rgba(128, 128, 128, 0.3);
+}
+
+.footer-mid-line
+{
+  @extend .ingredient-underline;
+  margin: 2rem 0;
+  height: 1px;
+}
+
+.footer
+{
+  width: 100%;
+  height: 12rem;
+  background-color: white;
+  .content
+  {
+    .brand
+    {
+      display: flex; 
+      justify-items: center;
+      cursor: pointer;
+      img
+      {
+        width: 50px;
+        display: block;
+      }
+      p
+      {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin: 10px;
+      }
+    }
+  }
+}
