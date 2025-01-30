@@ -15,6 +15,8 @@ export async function getAllCategories() {
       return response
     } catch (error) {
       console.error(error);
+      throw new Error("Error");
+      
     }
 }
   
@@ -26,6 +28,7 @@ export async function getMealsByCategory(category) {
       return response
     } catch (error) {
       console.error(error);
+      throw new Error("Error");
     }
 }
 
