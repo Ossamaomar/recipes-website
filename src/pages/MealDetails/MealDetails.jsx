@@ -1,23 +1,31 @@
 /* eslint-disable react/prop-types */
 
 import { useQuery } from "@tanstack/react-query";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getMealDetails } from "../../services/apiMeals";
 import { FaYoutube } from "react-icons/fa";
 import { TbWorld } from "react-icons/tb";
 import Ingredients from "../../components/Ingredients";
 import LoadingSkeleton2 from "../../components/LoadingSkeleton2";
+import { useEffect } from "react";
 
 function MealDetails() {
   const { mealId } = useParams();
+  const navigate = useNavigate()
 
   const { data, isLoading } = useQuery({
     queryKey: ["mealDetails", mealId],
     queryFn: () => getMealDetails(mealId),
   });
 
+  useEffect(() => {
+      if (data?.data?.meals === "Invalid ID") {
+        navigate("/"); 
+      }
+    }, [data, navigate]);
+
   if (isLoading) return <LoadingSkeleton2 />;
-  console.log(data.data.meals[0].strMeal);
+  console.log(data);
   
   const meal = data.data.meals[0];
   const ingredients = [];
@@ -31,7 +39,8 @@ function MealDetails() {
     ingredients.push({ ingredient, measure: measure || "N/A" });
   }
 
-  console.log(ingredients)
+
+
   return (
     <>
     <h1>{meal.strMeal}</h1>

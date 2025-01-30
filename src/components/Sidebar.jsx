@@ -10,8 +10,6 @@ function Sidebar({ showSidebar, setShowSidebar }) {
       if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
         setShowSidebar(false); // Close dropdown if click is outside
       }
-      console.log(sidebarRef.current);
-      console.log(event.target);
     }
     document.addEventListener("click", handleClickOutside);
     return () => document.removeEventListener("click", handleClickOutside);

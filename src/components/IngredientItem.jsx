@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 function IngredientItem({ ingredient, isLastIngredient }) {
-  console.log(isLastIngredient);
   return (
     <>
       <div className="flex justify-between items-center">
